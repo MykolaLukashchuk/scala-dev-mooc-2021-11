@@ -31,14 +31,20 @@ object task_collections {
    *
    * HINT: Для всех возможных комбинаций чисел стоит использовать Map
    * **/
+    val Mapping = Map(
+      "1" -> "one",
+      "2" -> "two",
+      "3" -> "three",
+      "4" -> "four",
+      "5" -> "fife",
+      "6" -> "six",
+      "7" -> "seven",
+      "8" -> "eight",
+      "9" -> "nine",
+      "10" -> "ten",
+    )
   def numbersToNumericString(text: String): String = {
-    text.split(" ").map {
-      case "1" => "one"
-      case "2" => "two"
-      case "4" => "four"
-      case "10" => "ten"
-      case str => str
-    }.foldLeft("")((left, str) => if (left.isEmpty) str else s"$left $str")
+    text.split(" ").map(str => Mapping.getOrElse(str, str)).foldLeft("")((left, str) => if (left.isEmpty) str else s"$left $str")
   }
 
   /**
